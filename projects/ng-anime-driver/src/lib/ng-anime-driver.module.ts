@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
-import { NgAnimeDriverComponent } from './ng-anime-driver.component';
 
 
 
 @NgModule({
-  declarations: [NgAnimeDriverComponent],
+  declarations: [],
   imports: [
   ],
-  exports: [NgAnimeDriverComponent]
+  exports: []
 })
 export class NgAnimeDriverModule { }
