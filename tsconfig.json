@@ -20,7 +20,7 @@
       "dom"
     ],
     "paths": {
-      "ng-anime-driver": [
+      "@lheido/ng-anime-driver": [
         "dist/ng-anime-driver/ng-anime-driver",
         "dist/ng-anime-driver"
       ]
