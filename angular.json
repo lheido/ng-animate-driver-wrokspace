@@ -122,6 +122,46 @@
           }
         }
       }
+    },
+    "ng-anime-driver": {
+      "projectType": "library",
+      "root": "projects/ng-anime-driver",
+      "sourceRoot": "projects/ng-anime-driver/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ng-anime-driver/tsconfig.lib.json",
+            "project": "projects/ng-anime-driver/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-anime-driver/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-anime-driver/src/test.ts",
+            "tsConfig": "projects/ng-anime-driver/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-anime-driver/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-anime-driver/tsconfig.lib.json",
+              "projects/ng-anime-driver/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ng-anime-driver-workspace"
