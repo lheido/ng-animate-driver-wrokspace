@@ -5,4 +5,3 @@
 export * from './lib/ng-anime-driver.service';
 export * from './lib/ng-anime-driver.module';
 export * from './lib/ng-anime-driver.player';
-export * from './lib/helper';

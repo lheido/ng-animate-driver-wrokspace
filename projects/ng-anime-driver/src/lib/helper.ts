@@ -138,7 +138,3 @@ export function convertKeyframes(
     return keyframe;
   });
 }
-
-export function convertEasing(easing: string): string {
-  return easing;
-}
