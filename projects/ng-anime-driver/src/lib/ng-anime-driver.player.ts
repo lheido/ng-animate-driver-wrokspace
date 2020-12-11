@@ -20,8 +20,7 @@ export class NgAnimeDriverPlayer implements AnimationPlayer {
     public element: any,
     keyframes: Keyframe[],
     public duration: number,
-    public delay: number,
-    easing?: string | null
+    public delay: number
   ) {
     // Convert Angular keyframes to animejs format (transform property).
     this.keyframes = convertKeyframes(keyframes, duration);
