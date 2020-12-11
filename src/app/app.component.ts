@@ -66,17 +66,4 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-anime-driver-workspace';
-
-  @ViewChild('content', { static: true }) content!: ElementRef<HTMLElement>;
-
-  constructor(private renderer: Renderer2) { }
-
-  animationStart(): void {
-    this.renderer.setStyle(document.body, 'overflow', 'hidden');
-  }
-
-  animationDone(): void {
-    this.renderer.setStyle(document.body, 'overflow', 'auto');
-  }
-
 }
