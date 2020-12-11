@@ -21,10 +21,10 @@
     ],
     "paths": {
       "@lheido/ng-anime-driver": [
-        "dist/ng-anime-driver/ng-anime-driver",
-        "dist/ng-anime-driver"
+        "projects/ng-anime-driver/src"
       ]
-    }
+    },
+    "allowSyntheticDefaultImports": true
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
