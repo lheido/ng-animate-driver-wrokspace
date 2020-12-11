@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NgAnimeDriverService } from './ng-anime-driver.service';
+import { NgAnimeDriver } from './ng-anime-driver.service';
 
 describe('NgAnimeDriverService', () => {
-  let service: NgAnimeDriverService;
+  let service: NgAnimeDriver;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(NgAnimeDriverService);
+    service = TestBed.inject(NgAnimeDriver);
   });
 
   it('should be created', () => {
