@@ -1,4 +1,4 @@
-import { animate, group, sequence, style, transition, trigger } from '@angular/animations';
+import { animate, group, keyframes, query, sequence, style, transition, trigger } from '@angular/animations';
 import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
@@ -8,16 +8,58 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
   animations: [
     trigger('fooo', [
       transition(':enter', [
-        style({ opacity: 0, transform: 'translate(-10%, 0)' }),
         group([
-          animate('2s linear', style({ opacity: 1 })),
-          sequence([
-            animate('1s', style({ transform: 'translate(0, 0)' })),
-            animate('1s', style({ transform: 'scale(0.5) rotate(0.5turn)' })),
-            animate('1s linear', style({ transform: 'scale(1)' })),
-            animate('1s', style({ transform: 'rotate(1turn)' })),
-          ])
-        ]),
+          query('.item:nth-child(1)', [
+            animate('2s linear', style({ opacity: 1 })),
+            animate('700ms', style({ transform: 'translate(-100%, -100%)' })),
+            animate('650ms linear', style({ transform: 'translate(100%, -100%)' })),
+            animate('700ms', style({ transform: 'translate(100%, 100%)' })),
+            animate('550ms linear', style({ transform: 'translate(-100%, 100%)' })),
+            animate('700ms', style({ transform: 'translate(-50%, -50%)' })),
+            animate('700ms', style({ borderTopLeftRadius: '100%' })),
+            animate('330ms linear', style({ transform: 'translate(0,0) scale(0.9)', borderRadius: '50%' })),
+            animate('2s easeOutElastic(1, .8)', style({ transform: 'scale(3)' })),
+            animate('1s linear', style({ opacity: 0 })),
+          ]),
+          query('.item:nth-child(2)', [
+            animate('2s linear', style({ opacity: 1 })),
+            animate('700ms', style({ transform: 'translate(100%, -100%)' })),
+            animate('650ms linear', style({ transform: 'translate(100%, 100%)' })),
+            animate('700ms', style({ transform: 'translate(-100%, 100%)' })),
+            animate('550ms linear', style({ transform: 'translate(-100%, -100%)' })),
+            animate('700ms', style({ transform: 'translate(50%, -50%)' })),
+            animate('700ms', style({ borderTopRightRadius: '100%' })),
+            animate('330ms linear', style({ transform: 'translate(0,0) scale(0.9)', borderRadius: '50%' })),
+            animate('2s 2s easeOutElastic(2, .8)', style({ transform: 'scale(3)' })),
+            animate('1s linear', style({ opacity: 0 })),
+          ]),
+          query('.item:nth-child(3)', [
+            animate('2s linear', style({ opacity: 1 })),
+            animate('700ms', style({ transform: 'translate(-100%, 100%)' })),
+            animate('650ms linear', style({ transform: 'translate(-100%, -100%)' })),
+            animate('700ms', style({ transform: 'translate(100%, -100%)' })),
+            animate('550ms linear', style({ transform: 'translate(100%, 100%)' })),
+            animate('700ms', style({ transform: 'translate(-50%, 50%)' })),
+            animate('700ms', style({ borderBottomLeftRadius: '100%' })),
+            animate('330ms linear', style({ transform: 'translate(0,0) scale(0.9)', borderRadius: '50%' })),
+            animate('2s 4s easeOutElastic(3, .8)', style({ transform: 'scale(3)' })),
+            animate('1s linear', style({ opacity: 0 })),
+          ]),
+          query('.item:nth-child(4)', [
+            animate('2s linear', style({ opacity: 1 })),
+            animate('700ms', style({ transform: 'translate(100%, 100%)' })),
+            animate('650ms linear', style({ transform: 'translate(-100%, 100%)' })),
+            animate('700ms', style({ transform: 'translate(-100%, -100%)' })),
+            animate('550ms linear', style({ transform: 'translate(100%, -100%)' })),
+            animate('700ms', style({ transform: 'translate(50%, 50%)' })),
+            animate('700ms', style({ borderBottomRightRadius: '100%' })),
+            animate('330ms linear', style({ transform: 'translate(0,0) scale(1.1)', borderRadius: '50%' })),
+            animate('2s easeOutElastic(4, .6)', style({ transform: 'scale(1.3)' })),
+            animate('2s easeOutElastic(4, .6)', style({ transform: 'scale(1.5)' })),
+            animate('2s easeOutElastic(4, .6)', style({ transform: 'scale(1.7)' })),
+            animate('1s linear', style({ transform: 'scale(0)' }))
+          ]),
+        ])
       ])
     ])
   ]
