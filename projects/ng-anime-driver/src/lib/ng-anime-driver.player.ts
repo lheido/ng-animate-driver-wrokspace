@@ -1,5 +1,5 @@
 import { AnimationPlayer } from '@angular/animations';
-import { convertKeyframes } from './helper';
+import { convertKeyframes, Keyframe } from './helper';
 import anime, { AnimeInstance } from 'animejs';
 
 export class NgAnimeDriverPlayer implements AnimationPlayer {
@@ -18,7 +18,7 @@ export class NgAnimeDriverPlayer implements AnimationPlayer {
 
   constructor(
     public element: any,
-    keyframes: { [key: string]: string | number; }[],
+    keyframes: Keyframe[],
     public duration: number,
     public delay: number,
     easing?: string | null

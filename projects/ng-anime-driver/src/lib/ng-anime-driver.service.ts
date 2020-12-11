@@ -1,6 +1,6 @@
 import { AnimationDriver } from '@angular/animations/browser';
 import { Injectable } from '@angular/core';
-import { containsElement, invokeQuery, matchesElement } from './helper';
+import { containsElement, invokeQuery, matchesElement, Keyframe } from './helper';
 import { NgAnimeDriverPlayer } from './ng-anime-driver.player';
 
 @Injectable({
@@ -30,7 +30,7 @@ export class NgAnimeDriver extends AnimationDriver {
 
   animate(
     element: any,
-    keyframes: { [key: string]: string | number; }[],
+    keyframes: Keyframe[],
     duration: number,
     delay: number,
     easing?: string | null,

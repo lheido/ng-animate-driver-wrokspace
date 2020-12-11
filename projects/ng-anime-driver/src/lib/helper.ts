@@ -81,6 +81,7 @@ export const easingMap: { [key: string]: string } = {
 
 export interface Keyframe {
   [key: string]: string | number;
+  offset: number;
 }
 
 export function convertKeyframes(
@@ -116,9 +117,8 @@ export function convertKeyframes(
     if (keyframeIndex === 0) {
       keyframe.duration = 0;
     } else {
-      keyframe.duration = (keyframe.offset as number * duration) - (clones[keyframeIndex - 1].duration as number);
+      keyframe.duration = ((keyframe.offset - clones[keyframeIndex - 1].offset) as number) * duration;
     }
-    delete keyframe.offset;
 
     // Convert CSS easing syntax and move to the correct keyframe.
     if (keyframeIndex > 0 && clones[keyframeIndex - 1].easing !== undefined) {
@@ -134,6 +134,7 @@ export function convertKeyframes(
       keyframe.easing = keyframe._easing;
       delete keyframe._easing;
     }
+    delete (keyframe as any).offset;
     return keyframe;
   });
 }
