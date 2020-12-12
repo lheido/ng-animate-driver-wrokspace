@@ -1,25 +1,3 @@
-.wrapper {
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  background: rgb(31, 31, 31);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.item {
-  width: 20vh;
-  height: 20vh;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 3em;
-  font-family: Roboto;
-  opacity: 0;
-}
-
 .item:nth-child(1) {
   background-color: #794c74;
 }
@@ -31,4 +9,58 @@
 }
 .item:nth-child(4) {
   background-color: #b2deec;
+}
+
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: rgb(31, 31, 31);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper .item {
+  width: 20vh;
+  height: 20vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  font-family: Roboto;
+  opacity: 0;
+}
+
+.stagger-wrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stagger-wrapper .item {
+  width: 25vw;
+  height: 1vh;
+  opacity: 0;
+}
+
+.keyframes-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.keyframes-wrapper .item {
+  width: 25vw;
+  height: 2vh;
+  transform-origin: center bottom;
 }

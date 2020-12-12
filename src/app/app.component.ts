@@ -1,5 +1,5 @@
-import { animate, group, keyframes, query, sequence, style, transition, trigger } from '@angular/animations';
-import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { animate, group, keyframes, query, sequence, stagger, style, transition, trigger } from '@angular/animations';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -61,9 +61,39 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
           ]),
         ])
       ])
-    ])
+    ]),
+    trigger('stagooo', [
+      transition('* <=> *', [
+        query('.item', [
+          style({ opacity: 0 }),
+          stagger('0.5s', animate('1.5s linear', style({ opacity: 1 }))),
+          animate('2s linear', style({ opacity: 0 })),
+        ])
+      ])
+    ]),
+    trigger('keyframooo', [
+      transition('* <=> *', [
+        query('.item', [
+          stagger('0.5s', animate('4s linear', keyframes([
+            style({ opacity: 0, scaleY: 1, offset: 0 }),
+            style({ opacity: 1, scaleY: 1, offset: 0.5 }),
+            style({ opacity: 0, scaleY: 0.5, offset: 1 }),
+          ]))),
+        ])
+      ])
+    ]),
   ]
 })
 export class AppComponent {
   title = 'ng-anime-driver-workspace';
+  stagooo = Math.random();
+  keyframooo = Math.random();
+
+  restartStagooo(): void {
+    this.stagooo = Math.random();
+  }
+
+  restartKeyframooo(): void {
+    this.keyframooo = Math.random();
+  }
 }
