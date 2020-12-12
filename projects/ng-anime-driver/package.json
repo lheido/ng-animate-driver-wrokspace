@@ -1,6 +1,19 @@
 {
   "name": "@lheido/ng-anime-driver",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "description": "Allow to use animejs instead of default web animation provided by @angular/animations.",
+  "keywords": [
+    "Angular",
+    "Library",
+    "Animation",
+    "Driver"
+  ],
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lheido/ng-animate-driver-wrokspace"
+  },
+  "homepage": "https://github.com/lheido/ng-animate-driver-wrokspace",
   "peerDependencies": {
     "@angular/common": ">8",
     "@angular/core": ">8",

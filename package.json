@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build ng-anime-driver --prod",
+    "publish": "npm publish dist/ng-anime-driver --access public",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

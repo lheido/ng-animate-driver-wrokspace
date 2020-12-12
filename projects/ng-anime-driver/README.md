@@ -2,23 +2,82 @@
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
 
-## Code scaffolding
+## Install
 
-Run `ng generate component component-name --project ng-anime-driver` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ng-anime-driver`.
-> Note: Don't forget to add `--project ng-anime-driver` or else it will be added to the default project in your `angular.json` file. 
+Run the following command: `npm install animejs @lheido/ng-anime-driver`.
 
-## Build
+If you encounter a warning using animejs you may add the following line to your `tsconfig.json` file:
 
-Run `ng build ng-anime-driver` to build the project. The build artifacts will be stored in the `dist/` directory.
+```json
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true
+  }
+}
+```
 
-## Publishing
+## How to use
 
-After building your library with `ng build ng-anime-driver`, go to the dist folder `cd dist/ng-anime-driver` and run `npm publish`.
+Simply add the `NgAnimeDriverModule` in your `app.module.ts`:
 
-## Running unit tests
+```typescript
+import { NgModule } from '@angular/core';
 
-Run `ng test ng-anime-driver` to execute the unit tests via [Karma](https://karma-runner.github.io).
+import { NgAnimeDriverModule } from '@lheido/ng-anime-driver';
 
-## Further help
+@NgModule({
+  imports: [
+    // ...
+    NgAnimeDriverModule
+  ],
+})
+export class AppModule { }
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+
+Then you can define your animations as usual with Angular syntax.
+
+```typescript
+import { animate, style, transition, trigger } from '@angular/animations';
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  animations: [
+    trigger('myAnimation', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate(1000, style({ opacity: 1 })),
+      ])
+    ]),
+  ]
+})
+export class AppComponent {}
+
+```
+
+Or using the `AnimationBuilder` (no need to use a polyfill):
+
+```typescript
+import { animate, style, AnimationBuilder } from '@angular/animations';
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+})
+export class AppComponent {
+
+  constructor(private animationBuilder: AnimationBuilder) {
+    this.animationBuilder.build([
+      style({ opacity: 0 }),
+      animate(1000, style({ opacity: 1 })),
+    ]).create(/* your html element */).play();
+  }
+
+}
+
+```
