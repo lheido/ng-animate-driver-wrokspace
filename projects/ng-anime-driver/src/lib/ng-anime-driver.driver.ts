@@ -37,7 +37,7 @@ export class NgAnimeDriver extends AnimationDriver {
     previousPlayers?: any[],
     scrubberAccessRequested?: boolean
   ): any {
-    return new NgAnimeDriverPlayer(element, keyframes, duration, delay);
+    return new NgAnimeDriverPlayer(element, keyframes, duration, delay, easing);
   }
 
 }

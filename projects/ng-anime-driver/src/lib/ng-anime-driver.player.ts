@@ -20,7 +20,8 @@ export class NgAnimeDriverPlayer implements AnimationPlayer {
     public element: any,
     keyframes: Keyframe[],
     public duration: number,
-    public delay: number
+    public delay: number,
+    public easing: string | null | undefined
   ) {
     // Convert Angular keyframes to animejs format (transform property).
     this.keyframes = convertKeyframes(keyframes, duration);
@@ -73,7 +74,7 @@ export class NgAnimeDriverPlayer implements AnimationPlayer {
   finish(): void {
     this.init();
     this._onFinish();
-    this.player.seek(this.totalTime);
+    this.setPosition(1);
   }
 
   destroy(): void {
@@ -107,7 +108,8 @@ export class NgAnimeDriverPlayer implements AnimationPlayer {
       targets: this.element,
       keyframes: this.keyframes,
       autoplay: false,
-      delay: this.delay
+      delay: this.delay,
+      easing: this.easing || 'easeOutElastic(1, .5)',
     });
     this.player.finished.then(() => this._onFinish());
   }
