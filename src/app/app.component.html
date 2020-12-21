@@ -1,20 +1,10 @@
-<div class="stagger-wrapper" [@stagooo]="stagooo" (@stagooo.done)="restartStagooo()">
-  <div class="item"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-</div>
-
-<div class="keyframes-wrapper" [@keyframooo]="keyframooo" (@keyframooo.done)="restartKeyframooo()">
-  <div class="item"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-</div>
-
-<div class="wrapper" @fooo>
-  <div class="item"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  <div class="item"></div>
+<nav>
+  <ul>
+    <li *ngFor="let route of routes">
+      <a [routerLink]="route.data?.path" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{ route.data?.label }}</a>
+    </li>
+  </ul>
+</nav>
+<div [@routeTransition]="prepareRoute(outlet)" style="flex: 1; display: block; position: relative;">
+  <router-outlet #outlet="outlet"></router-outlet>
 </div>
